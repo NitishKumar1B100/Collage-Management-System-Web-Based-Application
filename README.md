@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -14,3 +15,7 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+=======
+# Collage-Management-System-Web-Based-Application
+This work describes a web-based college management system that automates academic clearance and links it with online tuition fee payment. It digitizes student records, enables faculty verification, ensures real-time status visibility, reduces delays and errors, and improves administrative efficiency in higher education institutions.
+>>>>>>> 8a8673a36f66872953ee6abb75e157a4584ac274
