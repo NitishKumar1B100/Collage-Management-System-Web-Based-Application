@@ -1,0 +1,627 @@
+@import "tailwindcss";
+
+
+:root {
+  --stat-students-bg: #e0f2fe;
+  --stat-students-text: #0369a1;
+
+  --stat-books-bg: #ede9fe;
+  --stat-books-text: #5b21b6;
+
+  --stat-danger-bg: #fee2e2;
+  --stat-danger-text: #991b1b;
+
+  --stat-success-bg: #dcfce7;
+  --stat-success-text: #166534;
+
+  --danger-bg: #fee2e2;
+  --danger-text: #991b1b;
+
+  --warn-bg: #fef3c7;
+  --warn-text: #92400e;
+
+  --success-bg: #dcfce7;
+  --success-text: #166534;
+}
+
+
+
+svg:focus,
+svg:active {
+  outline: none;
+}
+
+
+.dark {
+  /* existing */
+  --profile-content-title: #d8d7d7a9;
+  --profile-content: #ffffff;
+  --bg: #020617;
+  --card: #0f172a;
+  --border: #1e293b;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --primary: #2563eb;
+  --input-bg: #020617;
+
+  --select-option: rgba(0, 0, 0, 0.153);
+
+  --select-options: rgba(0, 0, 0, 0.797);
+
+
+  --overlay-bg: rgba(2, 6, 23, 0.733);
+
+  /* Book Status Colors */
+  --book-overdue-bg: #5f212065;
+  --book-overdue-border: #ef4444;
+  --book-overdue-text: #f87171;
+
+  --book-dueSoon-bg: #4b2e0f;
+  --book-dueSoon-border: #f97316;
+  --book-dueSoon-text: #fb923c;
+
+  --book-freePeriod-bg: #78760532;
+  --book-freePeriod-border: #facc15;
+  --book-freePeriod-text: #fcd34d;
+
+  --book-returned-bg: #11403372;
+  --book-returned-border: #34d399;
+  --book-returned-text: #6ee7b7;
+  /* Student Class card */
+  --student-class-card: rgba(14, 15, 15, 0.427);
+
+  /* SIDEBAR */
+  --sidebar-bg: linear-gradient(180deg, #020617 0%, #020617 60%, #030a1f 100%);
+  --sidebar-border: #1e293b;
+
+  --sidebar-item-text: #cbd5f5;
+  --sidebar-item-hover-bg: rgba(59, 130, 246, 0.12);
+  --sidebar-item-hover-text: #e0e7ff;
+
+  --sidebar-active-bg: linear-gradient(90deg,
+      #2563eb,
+      #4f46e5);
+  --sidebar-active-text: #ffffff;
+  --sidebar-active-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+  /* PROFILE */
+  --nav-profile: #38bdf8;
+  --nav-profile-bg: rgba(56, 189, 248, 0.15);
+
+  /* WORK */
+  --nav-work: #a78bfa;
+  --nav-work-bg: rgba(167, 139, 250, 0.15);
+
+  /* SETTING */
+  --nav-setting: #fbbf24;
+  --nav-setting-bg: rgba(251, 191, 36, 0.15);
+  /* STUDENT – PROFILE */
+  --student-nav-profile: #22d3ee;
+  --student-nav-profile-bg: rgba(34, 211, 238, 0.15);
+
+  /* STUDENT – WORK */
+  --student-nav-work: #a78bfa;
+  --student-nav-work-bg: rgba(167, 139, 250, 0.15);
+
+  /* STUDENT – PAYMENT */
+  --student-nav-payment: #34d399;
+  --student-nav-payment-bg: rgba(52, 211, 153, 0.15);
+
+  /* STUDENT – SETTING */
+  --student-nav-setting: #fbbf24;
+  --student-nav-setting-bg: rgba(251, 191, 36, 0.15);
+
+  /* STUDENT – BOOKS */
+  --student-nav-books: #65c357;
+  --student-nav-books-bg: #65c35736;
+
+  /* STUDENT – FEEDBACK & SUPPORT */
+  --student-nav-feedback: #2563eb;
+  --student-nav-feedback-bg: rgba(37, 99, 235, 0.15);
+
+
+  /* ADMIN – PROFILE */
+--admin-nav-profile: #ef4444;
+--admin-nav-profile-bg: rgba(239, 68, 68, 0.15);
+
+/* ADMIN – STUDENTS */
+--admin-nav-students: #22c55e;
+--admin-nav-students-bg: rgba(34, 197, 94, 0.15);
+
+/* ADMIN – FACULTY */
+--admin-nav-faculty: #3b82f6;
+--admin-nav-faculty-bg: rgba(59, 130, 246, 0.15);
+
+/* ADMIN – ADD USER */
+--admin-nav-add: #a855f7;
+--admin-nav-add-bg: rgba(168, 85, 247, 0.15);
+
+/* ADMIN – SYSTEM */
+--admin-nav-system: #f97316;
+--admin-nav-system-bg: rgba(249, 115, 22, 0.15);
+
+/* ADMIN – SETTING */
+--admin-nav-setting: #facc15;
+--admin-nav-setting-bg: rgba(250, 204, 21, 0.15);
+
+
+  /* AdminStudentlist */
+--admin-std-1: #0686cc; /* sky-700 */
+--admin-std-2: #7c3aedfe; /* purple-700 */
+--admin-std-3: #d8630a; /* amber-700 */
+--admin-std-4: #d80b60; /* pink-700 */
+
+  /* AdminFacultylist */
+--admin-fclt-1: #004b74; /* sky-700 */
+--admin-fclt-2: #582ca4; /* purple-700 */
+--admin-fclt-3: #8f4004; /* amber-700 */
+--admin-fclt-4: #a21651; /* pink-700 */
+
+
+  --stat-students-bg: #0c4a6e;      /* sky-900 */
+  --stat-students-text: #7dd3fc;    /* sky-300 */
+  --stat-students-bg-op: #e0f2fe;   /* sky-100 */
+
+  --stat-active-bg: #064e3b;        /* emerald-900 */
+  --stat-active-text: #6ee7b7;      /* emerald-300 */
+  --stat-active-bg-op: #d1fae5;     /* emerald-100 */
+
+  --stat-faculty-bg: #3b0764;       /* purple-900 */
+  --stat-faculty-text: #d8b4fe;     /* purple-300 */
+  --stat-faculty-bg-op: #ede9fe;    /* purple-100 */
+
+  --stat-books-bg: #78350f;         /* amber-900 */
+  --stat-books-text: #fcd34d;       /* amber-300 */
+  --stat-books-bg-op: #fef3c7;      /* amber-100 */
+
+
+    /* HOD – CURRICULUM (academic / syllabus) */
+  --hod-nav-curriculum: #22d3ee; /* cyan-400 */
+  --hod-nav-curriculum-bg: rgba(34, 211, 238, 0.15);
+
+  /* HOD – PLANNING & COMPLIANCE (governance / audit) */
+  --hod-nav-planning: #f59e0b; /* amber-500 */
+  --hod-nav-planning-bg: rgba(245, 158, 11, 0.15);
+}
+
+.light {
+  /* existing */
+  --bg: #eee;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --text: #020617;
+  --muted: #475569;
+  --primary: #16a34a;
+  --input-bg: #f1f5f9;
+  --overlay-bg: rgba(255, 255, 255, 0.733);
+
+
+  --select-option: rgba(0, 0, 0, 0);
+
+  --select-options: rgba(0, 0, 0, 0.062);
+
+  /* AdminStudentlist */
+--admin-std-1: #e0f2fe; /* sky-100 */
+--admin-std-2: #ede9fe; /* purple-100 */
+--admin-std-3: #fef3c7; /* amber-100 */
+--admin-std-4: #fce7f3; /* pink-100 */
+
+  /* AdminFacultylist */
+--admin-fclt-1: #e0f2fe; /* sky-100 */
+--admin-fclt-2: #ede9fe; /* purple-100 */
+--admin-fclt-3: #fef3c7; /* amber-100 */
+--admin-fclt-4: #fce7f3; /* pink-100 */
+
+  /* Student Class card */
+  --student-class-card: rgba(241, 240, 240, 0.427);
+
+
+  /* Book Status Colors */
+  --book-overdue-bg: #fee2e2;
+  --book-overdue-border: #f87171;
+  --book-overdue-text: #b91c1c;
+
+  --book-dueSoon-bg: #fff7ed;
+  --book-dueSoon-border: #fb923c;
+  --book-dueSoon-text: #c2410c;
+
+  --book-freePeriod-bg: #fefce8;
+  --book-freePeriod-border: #facc15;
+  --book-freePeriod-text: #a16207;
+
+  --book-returned-bg: #dcfce7;
+  --book-returned-border: #34d399;
+  --book-returned-text: #065f46;
+  /* SIDEBAR */
+  --sidebar-bg: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  --sidebar-border: #e2e8f0;
+
+  --sidebar-item-text: #334155;
+  --sidebar-item-hover-bg: rgba(22, 163, 74, 0.1);
+  --sidebar-item-hover-text: #064e3b;
+
+  --sidebar-active-bg: linear-gradient(90deg,
+      #16a34a,
+      #22c55e);
+  --sidebar-active-text: #ffffff;
+  --sidebar-active-shadow: 0 6px 18px rgba(22, 163, 74, 0.35);
+  /* PROFILE */
+  --nav-profile: #0284c7;
+  --nav-profile-bg: rgba(2, 132, 199, 0.12);
+
+  /* WORK */
+  --nav-work: #7c3aed;
+  --nav-work-bg: rgba(124, 58, 237, 0.12);
+
+  /* SETTING */
+  --nav-setting: #ca8a04;
+  --nav-setting-bg: rgba(202, 138, 4, 0.12);
+  /* STUDENT – PROFILE */
+  --student-nav-profile: #0891b2;
+  --student-nav-profile-bg: rgba(8, 145, 178, 0.12);
+
+  /* STUDENT – WORK */
+  --student-nav-work: #7c3aed;
+  --student-nav-work-bg: rgba(124, 58, 237, 0.12);
+
+  /* STUDENT – PAYMENT */
+  --student-nav-payment: #059669;
+  --student-nav-payment-bg: rgba(5, 150, 105, 0.12);
+
+  /* STUDENT – SETTING */
+  --student-nav-setting: #ca8a04;
+  --student-nav-setting-bg: rgba(202, 138, 4, 0.12);
+  /* STUDENT – BOOKS */
+  --student-nav-books: #65c357;
+  --student-nav-books-bg: #65c35736;
+
+  /* STUDENT – FEEDBACK & SUPPORT */
+  --student-nav-feedback: #2563eb;
+  --student-nav-feedback-bg: rgba(37, 99, 235, 0.15);
+
+
+  --profile-content-title: #5b5c51;
+  /* muted slate */
+  --profile-content: #020617;
+  /* primary text */
+
+
+  --admin-nav-profile: #b91c1c;
+--admin-nav-profile-bg: rgba(185, 28, 28, 0.12);
+
+--admin-nav-students: #15803d;
+--admin-nav-students-bg: rgba(21, 128, 61, 0.12);
+
+--admin-nav-faculty: #1d4ed8;
+--admin-nav-faculty-bg: rgba(29, 78, 216, 0.12);
+
+--admin-nav-add: #7e22ce;
+--admin-nav-add-bg: rgba(126, 34, 206, 0.12);
+
+--admin-nav-system: #c2410c;
+--admin-nav-system-bg: rgba(194, 65, 12, 0.12);
+
+--admin-nav-setting: #a16207;
+--admin-nav-setting-bg: rgba(161, 98, 7, 0.12);
+
+
+  --stat-students-bg: #e0f2fe;      /* sky-100 */
+  --stat-students-text: #0369a1;    /* sky-700 */
+  --stat-students-bg-op: #0c4a6e;   /* sky-900 */
+
+  --stat-active-bg: #d1fae5;        /* emerald-100 */
+  --stat-active-text: #047857;      /* emerald-700 */
+  --stat-active-bg-op: #064e3b;     /* emerald-900 */
+
+  --stat-faculty-bg: #ede9fe;       /* purple-100 */
+  --stat-faculty-text: #6d28d9;     /* purple-700 */
+  --stat-faculty-bg-op: #3b0764;    /* purple-900 */
+
+  --stat-books-bg: #fef3c7;         /* amber-100 */
+  --stat-books-text: #b45309;       /* amber-700 */
+  --stat-books-bg-op: #78350f;      /* amber-900 */
+
+
+   /* HOD – CURRICULUM */
+  --hod-nav-curriculum: #0e7490; /* cyan-700 */
+  --hod-nav-curriculum-bg: rgba(14, 116, 144, 0.12);
+
+  /* HOD – PLANNING & COMPLIANCE */
+  --hod-nav-planning: #ce5900; /* amber-700 */
+  --hod-nav-planning-bg: #ce59001f;
+}
+
+
+/* ---------- PAGE ---------- */
+
+main {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* ---------- CARD ---------- */
+
+.login-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+}
+
+/* ---------- INPUT ---------- */
+
+.login-input {
+  inline-size: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  outline: none;
+}
+
+.login-input:focus {
+  border-color: var(--primary);
+}
+
+/* ---------- BUTTONS ---------- */
+
+.login-btn {
+  background-color: var(--primary);
+  color: white;
+}
+
+.theme-btn {
+  border: 1px solid var(--border);
+  background-color: transparent;
+  color: var(--text);
+}
+
+/* GLOBAL THEME TRANSITION */
+.dark,
+.light {
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+/* ICON BUTTON */
+.theme-icon-btn {
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  color: var(--text);
+  padding: 0.5rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    border-color 300ms ease;
+}
+
+.theme-icon-btn:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* INPUT + CARD TRANSITIONS */
+.login-card,
+.login-input,
+.login-btn {
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    border-color 300ms ease;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.profile-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+
+/* ===== SIDEBAR SCROLLBAR (WEBKIT) ===== */
+.sidebar::-webkit-scrollbar {
+  inline-size: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: var(--primary);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 8px;
+  border: 2px solid var(--primary);
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text);
+}
+
+/* ===== SIDEBAR SCROLLBAR (FIREFOX) ===== */
+.sidebar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--primary);
+}
+
+
+
+/*Teacher Sidebar Styles */
+.teacher-sidebar {
+  background: var(--sidebar-bg);
+  border-inline-end: 1px solid var(--sidebar-border);
+}
+
+.teacher-nav-btn {
+  color: var(--sidebar-item-text);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.teacher-nav-btn:hover {
+  background: var(--sidebar-item-hover-bg);
+  color: var(--sidebar-item-hover-text);
+}
+
+.teacher-nav-btn.active {
+  background: var(--sidebar-active-bg);
+  color: var(--sidebar-active-text);
+  box-shadow: var(--sidebar-active-shadow);
+  transform: translateX(2px);
+}
+
+.teacher-mobile-nav {
+  background: var(--sidebar-bg);
+}
+
+.teacher-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  font-weight: 500;
+  color: var(--sidebar-item-text);
+  transition: all 0.18s ease;
+}
+
+.teacher-nav-btn:hover {
+  transform: translateX(2px);
+}
+
+.teacher-nav-btn[data-key="profile"] {
+  --item-color: var(--nav-profile);
+  --item-bg: var(--nav-profile-bg);
+}
+
+.teacher-nav-btn[data-key="work"] {
+  --item-color: var(--nav-work);
+  --item-bg: var(--nav-work-bg);
+}
+
+.teacher-nav-btn[data-key="setting"] {
+  --item-color: var(--nav-setting);
+  --item-bg: var(--nav-setting-bg);
+}
+
+.teacher-nav-btn:hover {
+  background: var(--item-bg);
+  color: var(--item-color);
+}
+
+.teacher-nav-btn.active {
+  background: linear-gradient(90deg,
+      var(--item-color),
+      transparent);
+  color: #fff;
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--item-color) 40%, transparent);
+}
+
+
+
+/* Student LeftSidebar Design */
+
+.student-sidebar {
+  background: var(--sidebar-bg);
+  border-inline-end: 1px solid var(--sidebar-border);
+}
+
+.student-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  font-weight: 500;
+  color: var(--sidebar-item-text);
+  transition: all 0.18s ease;
+}
+
+.student-nav-btn:hover {
+  background: var(--item-bg);
+  color: var(--item-color);
+  transform: translateX(2px);
+}
+
+.student-nav-btn.active {
+  background: linear-gradient(90deg,
+      var(--item-color),
+      transparent);
+  color: #ffffff;
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--item-color) 40%, transparent);
+}
+
+.student-nav-btn[data-key="profile"] {
+  --item-color: var(--student-nav-profile);
+  --item-bg: var(--student-nav-profile-bg);
+}
+
+.student-nav-btn[data-key="work"] {
+  --item-color: var(--student-nav-work);
+  --item-bg: var(--student-nav-work-bg);
+}
+
+.student-nav-btn[data-key="payment"] {
+  --item-color: var(--student-nav-payment);
+  --item-bg: var(--student-nav-payment-bg);
+}
+
+.student-nav-btn[data-key="setting"] {
+  --item-color: var(--student-nav-setting);
+  --item-bg: var(--student-nav-setting-bg);
+}
+
+.student-nav-btn[data-key="Books"] {
+  --item-color: var(--student-nav-books);
+  --item-bg: var(--student-nav-books-bg);
+}
+
+.student-nav-btn[data-key="Feedback&Support"] {
+  --item-color: var(--student-nav-feedback);
+  --item-bg: var(--student-nav-feedback-bg);
+}
+
+.teacher-nav-btn[data-key="profile"] {
+  --item-color: var(--admin-nav-profile);
+  --item-bg: var(--admin-nav-profile-bg);
+}
+
+.teacher-nav-btn[data-key="students"] {
+  --item-color: var(--admin-nav-students);
+  --item-bg: var(--admin-nav-students-bg);
+}
+
+.teacher-nav-btn[data-key="faculty"] {
+  --item-color: var(--admin-nav-faculty);
+  --item-bg: var(--admin-nav-faculty-bg);
+}
+
+.teacher-nav-btn[data-key="addUser"] {
+  --item-color: var(--admin-nav-add);
+  --item-bg: var(--admin-nav-add-bg);
+}
+
+.teacher-nav-btn[data-key="system"] {
+  --item-color: var(--admin-nav-system);
+  --item-bg: var(--admin-nav-system-bg);
+}
+
+.teacher-nav-btn[data-key="setting"] {
+  --item-color: var(--admin-nav-setting);
+  --item-bg: var(--admin-nav-setting-bg);
+}
+
+
+.hod-nav-btn[data-key="curriculum"] {
+  --item-color: var(--hod-nav-curriculum);
+  --item-bg: var(--hod-nav-curriculum-bg);
+}
+
+.hod-nav-btn[data-key="planning"] {
+  --item-color: var(--hod-nav-planning);
+  --item-bg: var(--hod-nav-planning-bg);
+}

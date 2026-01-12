@@ -1,0 +1,48 @@
+.profile-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* bubble container */
+.profile-bubbles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* individual bubble */
+.bubble {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+
+  /* lower visual dominance */
+  opacity: 0.28;
+  filter: blur(6px);
+
+  /* neutralized highlight */
+  background: radial-gradient(
+    circle at 40% 40%,
+    rgba(255, 255, 255, 0.35),
+    transparent 70%
+  );
+}
+
+
+/* placement + color */
+.bubble:nth-child(1) { top: 10%; left: 15%; background-color: #60a5fa; }
+.bubble:nth-child(2) { top: 60%; left: 10%; background-color: #34d399; }
+.bubble:nth-child(3) { top: 30%; left: 70%; background-color: #a78bfa; }
+.bubble:nth-child(4) { top: 70%; left: 60%; background-color: #fbbf24; }
+.bubble:nth-child(5) { top: 15%; left: 45%; background-color: #fb7185; }
+.bubble:nth-child(6) { top: 80%; left: 30%; background-color: #22d3ee; }
+.bubble:nth-child(7) { top: 40%; left: 85%; background-color: #4ade80; }
+.bubble:nth-child(8) { top: 55%; left: 50%; background-color: #c084fc; }
+
+/* keep content above bubbles */
+.profile-card > *:not(.profile-bubbles) {
+  position: relative;
+  z-index: 1;
+}
