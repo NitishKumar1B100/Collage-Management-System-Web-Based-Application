@@ -60,6 +60,16 @@ const ISSUES = [
   { id: 3, title: "Project Report Late", severity: "Low", due: "12 Jan 2026" },
 ];
 
+
+const BORDER_COLORS = {
+  "stat-faculty": "#7c3aed",      // blue-500
+  "stat-books": "#f59e0b",        // purple-500
+  "stat-students": "#0ea5e9",     // green-500
+  "stat-active": "#16a34a",       // rose-500
+};
+
+
+
 /* ================= METRIC CARD ================= */
 
 const MetricCard = memo(({ icon: Icon, label, value, tone, active, onClick, index }) => {
@@ -77,9 +87,8 @@ const MetricCard = memo(({ icon: Icon, label, value, tone, active, onClick, inde
     <button
       ref={ref}
       onClick={onClick}
-      className={`card flex items-center gap-4 text-left transition
-        ${active ? "ring-2 ring-[var(--primary)]" : ""}
-        hover:scale-[1.02]`}
+      className={`card flex items-center gap-4 text-left transition hover:scale-[1.02]`}
+      style={active ? { border: `2px solid ${BORDER_COLORS[tone]}`, boxShadow: `0 0 0 2px ${BORDER_COLORS[tone]}` } : {}}
     >
       <div
         className="p-3 rounded-xl"
@@ -95,6 +104,7 @@ const MetricCard = memo(({ icon: Icon, label, value, tone, active, onClick, inde
     </button>
   );
 });
+
 
 /* ================= EXPANDABLE ROW ================= */
 

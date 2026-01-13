@@ -6,6 +6,77 @@ import gsap from "gsap";
 const DAY = 1000 * 60 * 60 * 24;
 const ROLES = ["Student", "Faculty"];
 
+const STATIC_TRANSACTIONS = [
+  {
+    id: "TXN001",
+    book: "Introduction to Algorithms",
+    bookId: "CS-ALG-102",
+    status: "Issued",
+    issueDate: "2025-11-01",
+    receiver: {
+      name: "John Doe",
+      id: "STU1021",
+      role: "Student",
+    },
+    open: false,
+  },
+  {
+    id: "TXN002",
+    book: "Clean Code",
+    bookId: "CS-SE-221",
+    status: "Returned",
+    issueDate: "2025-10-10",
+    returnDate: "2025-10-28",
+    receiver: {
+      name: "Jane Smith",
+      id: "FAC221",
+      role: "Faculty",
+    },
+    open: false,
+  },
+  {
+    id: "TXN003",
+    book: "Operating System Concepts",
+    bookId: "CS-OS-305",
+    status: "Issued",
+    issueDate: "2025-09-15",
+    receiver: {
+      name: "Rahul Verma",
+      id: "STU1188",
+      role: "Student",
+    },
+    open: false,
+  },
+  {
+    id: "TXN004",
+    book: "Database System Concepts",
+    bookId: "CS-DB-401",
+    status: "Returned",
+    issueDate: "2025-08-01",
+    returnDate: "2025-08-22",
+    receiver: {
+      name: "Ananya Patel",
+      id: "STU1304",
+      role: "Student",
+    },
+    open: false,
+  },
+  {
+    id: "TXN005",
+    book: "Artificial Intelligence – A Modern Approach",
+    bookId: "AI-CORE-901",
+    status: "Issued",
+    issueDate: "2025-07-10",
+    receiver: {
+      name: "Dr. S. Mehta",
+      id: "FAC109",
+      role: "Faculty",
+    },
+    open: false,
+  },
+];
+
+
 const SORTS = {
   AZ: "AZ",
   FINE_ASC: "FINE_ASC",
@@ -33,8 +104,8 @@ const Input = memo(props => (
 const Select = memo(({ options, ...props }) => (
   <select
     {...props}
-    className="w-full rounded-md bg-transparent border border-[var(--border)]
-               px-3 py-2 text-sm outline-none"
+    className="w-full rounded-md bg-[var(--border)] border border-[var(--border)]
+               px-3 py-2 text-sm outline-none "
   >
     {options.map(o => (
       <option key={o.value} value={o.value}>
@@ -88,16 +159,21 @@ const TransactionCard = memo(({ txn, onToggle, onReturn }) => {
 
       {txn.open && (
         <div className="mt-4 pt-4 border-t border-[var(--border)] space-y-3 text-sm">
-          <Detail label="Book ID" value={txn.bookId} />
+          <div className="flex flex-wrap gap-5 ">
+            
+                      <Detail label="Book ID" value={txn.bookId} />
           <Detail label="Issue Date" value={txn.issueDate} />
+                    <Detail label="Reciever ID" value={txn.receiver.id} />
+
           {txn.returnDate && (
             <Detail label="Return Date" value={txn.returnDate} />
           )}
-          {fine > 0 && (
+                    {fine > 0 && (
             <Detail label="Fine" value={`₹${fine}`} highlight />
           )}
+          </div>
 
-          {txn.status === "Issued" && (
+                {txn.status === "Issued" && (
             <button
               onClick={e => {
                 e.stopPropagation();
@@ -110,8 +186,10 @@ const TransactionCard = memo(({ txn, onToggle, onReturn }) => {
               Mark as Returned
             </button>
           )}
+
         </div>
       )}
+
     </div>
   );
 });
@@ -129,7 +207,7 @@ const LibraryWork = memo(function LibraryWork() {
     role: "",
   });
 
-  const [transactions, setTransactions] = useState([]);
+const [transactions, setTransactions] = useState(STATIC_TRANSACTIONS);
   const [searchId, setSearchId] = useState("");
   const [sortBy, setSortBy] = useState(SORTS.DATE);
 
@@ -195,12 +273,15 @@ const LibraryWork = memo(function LibraryWork() {
     );
   }, []);
 
-  const filteredTransactions = useMemo(() => {
-    if (!searchId) return transactions;
-    return transactions.filter(
-      t => t.receiver.id === searchId
-    );
-  }, [transactions, searchId]);
+const filteredTransactions = useMemo(() => {
+  const q = searchId.trim().toLowerCase();
+  if (!q) return transactions;
+
+  return transactions.filter(t =>
+    t.receiver.id.toLowerCase().includes(q)
+  );
+}, [transactions, searchId]);
+
 
   const sortedTransactions = useMemo(() => {
     const list = [...filteredTransactions];
@@ -260,7 +341,7 @@ const LibraryWork = memo(function LibraryWork() {
             <select
               value={form.role}
               onChange={update("role")}
-              className="w-full rounded-md bg-transparent border border-[var(--border)]
+              className="w-full rounded-md bg-[var(--border)] border border-[var(--border)]
                          px-3 py-2 text-sm outline-none"
             >
               <option value="">Select</option>
@@ -312,12 +393,12 @@ const LibraryWork = memo(function LibraryWork() {
       </section>
 
       {/* TRANSACTIONS */}
-      <section className="max-w-[1150px] mx-auto bg-[var(--card)] rounded-2xl p-6 mb-8">
+      <section className="max-w-[1150px] mx-auto bg-[var(--card)] rounded-2xl p-6 mb-8 md:mb-0 ">
         <h2 className="text-lg font-semibold mb-4">
           Transactions
         </h2>
 
-        <div className="space-y-3 max-h-[50vh] overflow-y-auto pr-1">
+        <div className="space-y-3 max-h-[70vh] overflow-y-auto pr-1">
           {searchId && sortedTransactions.length === 0 && (
             <p className="text-xs text-rose-400">
               No records found for this Receiver ID

@@ -41,29 +41,38 @@ const MetricCard = memo(function MetricCard({
   }, [index]);
 
   return (
-    <button
-      ref={ref}
-      onClick={onClick}
-      className={`card flex items-center gap-4 text-left transition
-        ${active ? "ring-2 ring-[var(--primary)]" : ""}
-        hover:scale-[1.02]`}
+  <button
+    ref={ref}
+    onClick={onClick}
+    className={`card flex items-center gap-4 text-left transition
+      ${active ? "ring-2" : ""}
+      hover:scale-[1.02]`}
+    style={
+      active
+        ? {
+            ringColor: `var(--${tone}-text)`,
+            boxShadow: `0 0 0 2px var(--${tone}-text)`,
+          }
+        : undefined
+    }
+  >
+    <div
+      className="p-3 rounded-xl"
+      style={{
+        background: `var(--${tone}-bg)`,
+        color: `var(--${tone}-text)`,
+      }}
     >
-      <div
-        className="p-3 rounded-xl"
-        style={{
-          background: `var(--${tone}-bg)`,
-          color: `var(--${tone}-text)`,
-        }}
-      >
-        <Icon size={22} />
-      </div>
+      <Icon size={22} />
+    </div>
 
-      <div>
-        <p className="text-sm text-[var(--muted)]">{label}</p>
-        <p className="text-xl font-semibold">{value}</p>
-      </div>
-    </button>
-  );
+    <div>
+      <p className="text-sm text-[var(--muted)]">{label}</p>
+      <p className="text-xl font-semibold">{value}</p>
+    </div>
+  </button>
+);
+
 });
 
 /* ================= STUDENT ROW ================= */
@@ -161,7 +170,7 @@ const HodAcademicOversight = memo(function HodAcademicOversight() {
       : STUDENTS;
 
   return (
-    <section ref={containerRef} className="space-y-6">
+    <section ref={containerRef} className="space-y-6 max-h-[calc(100vh-80px)] overflow-y-auto">
       {/* HEADER */}
       <header>
         <h2 className="text-xl font-semibold">Academic Oversight</h2>
@@ -171,7 +180,7 @@ const HodAcademicOversight = memo(function HodAcademicOversight() {
       </header>
 
       {/* METRIC CARDS */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-2">
         <MetricCard
           icon={FaUserGraduate}
           label="Total Students"

@@ -119,7 +119,7 @@ const Hod = memo(function Hod({ theme }) {
     
           {/* MOBILE NAV */}
           <nav className="h-15 fixed bottom-0 left-0 right-0 md:hidden bg-[var(--card)] border-t border-[var(--border)]">
-            <div className="grid grid-cols-4">
+            <div className="grid grid-cols-6">
               {HOD_NAV_ITEMS.map(({ key, icon: Icon }) => (
      <button
                   key={key}

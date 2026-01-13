@@ -50,7 +50,7 @@ const TuitionFeeSection = memo(function TuitionFeeSection() {
         </div>
 
         {computed.map(s => (
-          <div key={s.sem} className="fee-card grid grid-cols-12 px-4 py-3 border-b hover:bg-[var(--primary-light)] transition-colors rounded-md">
+          <div key={s.sem} className="fee-card grid grid-cols-12 px-4 py-3 border-b hover:bg-[var(--primary-light)] rounded-md">
             <span className="col-span-1 font-medium">{s.sem}</span>
 
             <div className="col-span-3 text-xs space-y-1">
@@ -71,7 +71,7 @@ const TuitionFeeSection = memo(function TuitionFeeSection() {
 
             <div className="col-span-1 flex justify-center items-center">
               {s.showPay && (
-                <button className="text-xs px-3 py-1 rounded bg-[var(--primary)] text-white shadow-sm hover:scale-105 transition-transform">
+                <button className="text-xs px-3 py-1 rounded bg-[var(--primary)] text-white shadow-sm hover:scale-105 ">
                   Pay
                 </button>
               )}
@@ -83,7 +83,7 @@ const TuitionFeeSection = memo(function TuitionFeeSection() {
       {/* ---------- MOBILE CARDS ---------- */}
       <div className="md:hidden space-y-4">
         {computed.map(s => (
-          <div key={s.sem} className="fee-card bg-[var(--card)] border rounded-xl p-4 shadow hover:shadow-lg transition-all">
+          <div key={s.sem} className="fee-card bg-[var(--card)] border rounded-xl p-4 shadow hover:shadow-lg ">
             <div className="flex justify-between items-center mb-2">
               <span className="font-semibold text-[var(--text)]">Semester {s.sem}</span>
               <span className={`text-xs px-2 py-1 rounded font-medium
@@ -112,7 +112,7 @@ const TuitionFeeSection = memo(function TuitionFeeSection() {
             <div className="text-sm mt-2 font-medium">Total: ₹{s.total}</div>
 
             {s.showPay && (
-              <button className="mt-3 w-full py-2 rounded bg-[var(--primary)] text-white font-medium hover:scale-[1.03] transition-transform">
+              <button className="mt-3 w-full py-2 rounded bg-[var(--primary)] text-white font-medium hover:scale-[1.03] ">
                 Pay Now
               </button>
             )}

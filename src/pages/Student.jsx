@@ -67,7 +67,7 @@ const Student = memo(function Student({theme}) {
   }, [section, workFilter]);
 
   return (
-    <div className={`${theme} h-screen flex bg-[var(--bg)] text-[var(--text)] mb-6 md:mb-0`}>
+    <div className={`${theme} h-screen flex bg-[var(--bg)] text-[var(--text)] `}>
       {/* ---------- DESKTOP SIDEBAR ---------- */}
   <aside className="hidden md:flex w-64 flex-col student-sidebar p-4">
   <h2 className="text-xl font-semibold mb-6 tracking-wide">

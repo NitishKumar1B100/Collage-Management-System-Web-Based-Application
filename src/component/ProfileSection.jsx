@@ -121,7 +121,7 @@ bubbles.forEach((bubble, i) => {
   return (
     <div
       ref={containerRef}
-      className="space-y-6 h-[calc(100vh-48px)] overflow-y-auto slidebar p-4 "
+      className="space-y-6 h-[calc(100vh-68px)] md:h-[calc(100vh-48px)] overflow-y-auto slidebar p-4 "
     >
       <div className="profile-card flex sm:flex-row flex-col sm:gap-6 profile-header">
         {/* BUBBLE BACKGROUND */}
@@ -132,11 +132,13 @@ bubbles.forEach((bubble, i) => {
         </div>
 
         {/* CONTENT */}
-        <div className="flex sm:flex-row flex-col items-center justify-center gap-3">
+        <div className=" flex md:flex-col  lg:text-start lg:flex-row flex-col items-center justify-center gap-3">
           <div className="flex flex-col gap-2 items-center">
             <img
               src={data.avatar}
-              className="select-none w-28 h-28 rounded-full object-cover"
+              width={100}
+              height={100}
+              className="select-none rounded-full object-cover"
               alt=""
             />
 
@@ -159,8 +161,8 @@ bubbles.forEach((bubble, i) => {
             )}
           </div>
 
-          <div>
-            <h1 className="text-2xl font-semibold">{data.name}</h1>
+          <div className="text-center">
+            <h1 className="lg:text-xl text-2xl font-semibold">{data.name}</h1>
             <p className="text-center text-[9px] opacity-70">
               UID: {data.uid}
             </p>

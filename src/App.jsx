@@ -13,6 +13,7 @@ import { ModalProvider } from './context/ModalContext'
 import RoleSelector from './pages/RoleSelector'
 import GlobalAttendanceModal from './component/teacher/GlobalAttendanceModal'
 import Hod from './pages/HOD/Hod'
+import LiveSuggestion from './pages/Livesuggestion/LiveSuggestion'
 
 
 function App() {
@@ -37,6 +38,8 @@ function App() {
             </ModalProvider>} />
             <Route path="/library" element={<Liberary theme={theme} />} />
             <Route path="/admin" element={<Admin theme={theme} />} />
+            
+            <Route path='/live-suggestion' element={<LiveSuggestion theme={theme} toggleTheme={toggleTheme}/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

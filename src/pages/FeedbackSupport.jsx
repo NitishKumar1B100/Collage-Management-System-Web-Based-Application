@@ -86,7 +86,6 @@ export default function UniversitySupport() {
           border: 1px solid var(--border);
           border-radius: 1rem;
           padding: 1.5rem;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
           color: var(--text);
         }
 

@@ -68,7 +68,7 @@ function StudentLibrary() {
   }, [filteredBooks]);
 
   return (
-    <div className="student-library card p-4">
+    <div className="student-library card p-4 h-[calc(100vh-80px)] md:h-[calc(100vh-48px)] overflow-y-auto">
       <h2 className="font-bold text-xl text-[var(--text)] mb-4">My Borrowed Books</h2>
 
       {/* ---------- FILTER BUTTONS ---------- */}
@@ -90,7 +90,7 @@ function StudentLibrary() {
 
       <div
         ref={ref}
-        className="grid md:grid-cols-2 gap-6 max-h-[540px] overflow-y-auto pr-2"
+        className="grid md:grid-cols-2 gap-6 max-h-[calc(100vh-210px)] overflow-y-auto pr-2"
       >
         {filteredBooks.map((book) => {
           let bgColor = "";

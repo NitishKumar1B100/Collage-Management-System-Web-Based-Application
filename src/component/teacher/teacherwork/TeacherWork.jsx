@@ -6,6 +6,48 @@ import gsap from "gsap";
 const WORK_TYPES = ["Assignment", "Practical", "Homework"];
 const BATCHES = ["B.Tech sem:1", "B.Tech sem:4", "Diploma sem:3"];
 const STATUS_FILTERS = ["pending", "completed"];
+const WORKS_INIT = [
+  {
+    id: "W1",
+    title: "DSA Assignment – Arrays",
+    type: "Assignment",
+    batch: "B.Tech sem:1",
+    due: "2026-02-10",
+    allCompleted: false,
+  },
+  // {
+  //   id: "W2",
+  //   title: "Physics Lab – Ohm’s Law",
+  //   type: "Practical",
+  //   batch: "B.Tech sem:1",
+  //   due: "2026-02-05",
+  //   allCompleted: false,
+  // },
+  {
+    id: "W3",
+    title: "Microprocessors Homework",
+    type: "Homework",
+    batch: "B.Tech sem:4",
+    due: "2026-01-28",
+    allCompleted: true,
+  },
+  {
+    id: "W4",
+    title: "Digital Electronics Practical",
+    type: "Practical",
+    batch: "Diploma sem:3",
+    due: "2026-02-01",
+    allCompleted: false,
+  },
+//  {
+  //   id: "W5",
+  //   title: "Maths-II Weekly Assignment",
+  //   type: "Assignment",
+  //   batch: "B.Tech sem:4",
+  //   due: "2026-02-12",
+  //   allCompleted: true,
+  // },
+];
 
 const STUDENTS_INIT = {
   "B.Tech sem:1": [
@@ -19,6 +61,13 @@ const STUDENTS_INIT = {
     { id: "S4", name: "Aman", roll: "23DP07", status: "pending" },
   ],
 };
+
+const getWorkStatus = work => {
+  if (work.allCompleted) return "completed";
+  if (work.due && new Date(work.due) < new Date()) return "overdue";
+  return "pending";
+};
+
 
 /* ================= PRIMITIVES ================= */
 
@@ -56,8 +105,7 @@ const Select = memo(({ options, ...props }) => (
 /* ================= WORK CARD ================= */
 
 const WorkCard = memo(({ work, onOpen }) => {
-  const isOverdue =
-    work.due && new Date(work.due) < new Date() && !work.allCompleted;
+  const status = getWorkStatus(work);
 
   return (
     <button
@@ -81,18 +129,19 @@ const WorkCard = memo(({ work, onOpen }) => {
       <span
         className={`text-[10px] px-2 py-1 rounded-full border uppercase shrink-0
           ${
-            work.allCompleted
+            status === "completed"
               ? "border-emerald-500/40 text-emerald-400 bg-emerald-500/10"
-              : isOverdue
+              : status === "overdue"
               ? "border-rose-500/40 text-rose-400 bg-rose-500/10"
               : "border-amber-500/40 text-amber-400 bg-amber-500/10"
           }`}
       >
-        {work.allCompleted ? "Completed" : isOverdue ? "Overdue" : "Pending"}
+        {status}
       </span>
     </button>
   );
 });
+
 
 /* ================= MODAL ================= */
 
@@ -183,7 +232,7 @@ const TeacherWork = memo(function TeacherWork() {
     due: "",
   });
 
-  const [works, setWorks] = useState([]);
+  const [works, setWorks] = useState(WORKS_INIT);
   const [activeWork, setActiveWork] = useState(null);
   const [studentsMap, setStudentsMap] = useState(STUDENTS_INIT);
 
@@ -238,20 +287,21 @@ const TeacherWork = memo(function TeacherWork() {
     [activeWork, studentsMap]
   );
 
-  const filteredWorks = useMemo(() => {
-    return works.filter(w => {
-      if (filterType && w.type !== filterType) return false;
-      if (filterBatch && w.batch !== filterBatch) return false;
-      if (filterStatus) {
-        if (filterStatus === "completed" && !w.allCompleted) return false;
-        if (filterStatus === "pending" && w.allCompleted) return false;
-      }
-      return true;
-    });
-  }, [works, filterType, filterBatch, filterStatus]);
+const filteredWorks = useMemo(() => {
+  return works.filter(w => {
+    const status = getWorkStatus(w);
+
+    if (filterType && w.type !== filterType) return false;
+    if (filterBatch && w.batch !== filterBatch) return false;
+    if (filterStatus && status !== filterStatus) return false;
+
+    return true;
+  });
+}, [works, filterType, filterBatch, filterStatus]);
+
 
   return (
-    <div className="w-full h-[calc(100vh-30px)] overflow-y-auto px-4 py-6 space-y-10">
+    <div className="w-full  px-4 py-6 space-y-10 max-h-[calc(100vh-70px)] md:max-h-[calc(100vh-30px)] overflow-y-auto">
 
       {/* CREATE */}
       <section className="max-w-[1150px] mx-auto bg-[var(--card)] rounded-2xl p-6">

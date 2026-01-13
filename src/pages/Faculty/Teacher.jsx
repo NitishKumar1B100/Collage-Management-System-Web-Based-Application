@@ -7,6 +7,7 @@ import UniversitySupport from "../FeedbackSupport";
 import Books from '../../component/studentcom/Books'
 import { CiLogout } from "react-icons/ci";
 import TeacherWork from "../../component/teacher/teacherwork/TeacherWork";
+import HodCurriculum from "../../component/hod/HodCurriculum";
 
 const Teacher = memo(function Teacher({theme}) {
   const [section, setSection] = useState("profile");
@@ -33,6 +34,8 @@ const Teacher = memo(function Teacher({theme}) {
         );
       case "work":
         return <TeacherWork />;
+      case "curriculum":
+        return <HodCurriculum />;
       case "setting":
         return <SettingSection  />;
       case "Feedback&Support":
@@ -58,7 +61,7 @@ const Teacher = memo(function Teacher({theme}) {
       key={key}
       data-key={key}
       onClick={() => setSection(key)}
-      className={`teacher-nav-btn student-nav-btn px-4 py-2 rounded-lg mb-2
+      className={`teacher-nav-btn student-nav-btn hod-nav-btn px-4 py-2 rounded-lg mb-2
         ${section === key ? "active" : ""}
       `}
     >
@@ -82,7 +85,7 @@ const Teacher = memo(function Teacher({theme}) {
 
       {/* MOBILE NAV */}
       <nav className="h-15 fixed bottom-0 left-0 right-0 md:hidden bg-[var(--card)] border-t border-[var(--border)]">
-        <div className="grid grid-cols-4">
+        <div className="grid grid-cols-5">
           {TEACHER_NAV_ITEMS.map(({ key, icon: Icon }) => (
  <button
               key={key}

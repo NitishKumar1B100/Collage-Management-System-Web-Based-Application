@@ -22,6 +22,35 @@
 
   --success-bg: #dcfce7;
   --success-text: #166534;
+
+    --accent-student: #0ea5e9;
+  --accent-faculty: #8b5cf6;
+  --accent-library: #f59e0b;
+  
+    --blue-500: #2563eb;
+  --blue-100: #dbeafe;
+
+  --purple-500: #7c3aed;
+  --purple-100: #ede9fe;
+
+  --amber-500: #f59e0b;
+  --amber-100: #fef3c7;
+
+  --green-500: #16a34a;
+  --green-100: #dcfce7;
+
+  --sky-500: #0ea5e9;
+  --sky-100: #e0f2fe;
+
+  --rose-500: #e11d48;
+  --rose-100: #ffe4e6;
+
+
+    --accent-cse: linear-gradient(90deg,#3b82f6,#60a5fa);
+  --accent-ece: linear-gradient(90deg,#a855f7,#c084fc);
+  --accent-me: linear-gradient(90deg,#f59e0b,#fbbf24);
+  --accent-it: linear-gradient(90deg,#10b981,#34d399);
+  --accent-default: linear-gradient(90deg,#64748b,#94a3b8);
 }
 
 
@@ -32,13 +61,14 @@ svg:active {
 }
 
 
+
 .dark {
   /* existing */
   --profile-content-title: #d8d7d7a9;
   --profile-content: #ffffff;
   --bg: #020617;
   --card: #0f172a;
-  --border: #1e293b;
+  --border: #273449;
   --text: #f8fafc;
   --muted: #94a3b8;
   --primary: #2563eb;
@@ -181,6 +211,34 @@ svg:active {
   /* HOD – PLANNING & COMPLIANCE (governance / audit) */
   --hod-nav-planning: #f59e0b; /* amber-500 */
   --hod-nav-planning-bg: rgba(245, 158, 11, 0.15);
+
+    --work-practical-bg: rgba(37, 99, 235, 0.12);
+  --work-practical-border: #3b82f6;
+  --work-practical-badge: #2563eb;
+
+  --work-assignment-bg: rgba(245, 158, 11, 0.12);
+  --work-assignment-border: #f59e0b;
+  --work-assignment-badge: #d97706;
+
+
+    --work-status-complete: #22c55e;
+  --work-status-pending: #ef4444;
+
+    --ast-bg: #020617;
+  --ast-border: #1e293b;
+  --ast-title: #e5e7eb;
+  --ast-muted: #94a3b8;
+  --ast-input-bg: #020617;
+
+  --ast-row-1: #0b3a55;
+  --ast-row-2: #2b145f;
+  --ast-row-3: #4a2407;
+  --ast-row-4: #5a0a2d;
+
+  --ast-card-1: #0a75b39c;
+  --ast-card-2: #5020bfb9;
+  --ast-card-3: #cf5d069d;
+  --ast-card-4: #dd2d7a99;
 }
 
 .light {
@@ -328,8 +386,35 @@ svg:active {
   /* HOD – PLANNING & COMPLIANCE */
   --hod-nav-planning: #ce5900; /* amber-700 */
   --hod-nav-planning-bg: #ce59001f;
-}
 
+
+  --work-practical-bg: #eff6ff;
+  --work-practical-border: #2563eb;
+  --work-practical-badge: #1d4ed8;
+
+  --work-assignment-bg: #fffbeb;
+  --work-assignment-border: #d97706;
+  --work-assignment-badge: #b45309;
+
+    --work-status-complete: #15803d;
+  --work-status-pending: #b91c1c;
+
+   --ast-bg: #ffffff;
+  --ast-border: #e2e8f0;
+  --ast-title: #020617;
+  --ast-muted: #475569;
+  --ast-input-bg: #f1f5f9;
+
+  --ast-row-1: #e0f2fe;
+  --ast-row-2: #ede9fe;
+  --ast-row-3: #fef3c7;
+  --ast-row-4: #fce7f3;
+
+  --ast-card-1: #e0f2fe;
+  --ast-card-2: #ede9fe;
+  --ast-card-3: #fef3c7;
+  --ast-card-4: #fce7f3;
+}
 
 /* ---------- PAGE ---------- */
 

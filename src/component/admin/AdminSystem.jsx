@@ -78,7 +78,7 @@ const AdminSystem = memo(function AdminSystem() {
   }, []);
 
   return (
-    <section className="space-y-6">
+    <section className="space-y-6 max-h-[calc(100vh-74px)] overflow-y-auto">
       {/* HEADER */}
       <header className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-6">
         <h2 className="text-lg font-semibold">System Dashboard</h2>
@@ -125,7 +125,8 @@ const ResultPanel = memo(function ResultPanel({ action }) {
   return (
     <section 
       ref={panelRef} 
-      className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-6 space-y-4"
+      className=" 
+      bg-[var(--card)] border border-[var(--border)] rounded-2xl p-6 space-y-4"
     >
       <h3 className="text-md font-semibold mb-2 text-[var(--primary)]">{action.label} Details</h3>
 
